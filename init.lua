@@ -2,7 +2,7 @@
     HttpSpy v1.1.3
 ]]
 
-assert(syn or request, "Unsupport exploit (should support syn.request or http.request)");
+assert(request, "Unsupport exploit (should support syn.request or http.request)");
 
 local options = ({...})[1] or { AutoDecode = true, Highlighting = true, SaveLogs = true, CLICommands = true, ShowResponse = true, BlockedURLs = {}, API = true };
 local version = "v1.1.3";
