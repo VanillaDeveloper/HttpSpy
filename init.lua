@@ -2,7 +2,7 @@
     HttpSpy v1.1.3
 ]]
 
-assert(syn or http, "Unsupport exploit (should support syn.request or http.request)");
+assert(syn or request, "Unsupport exploit (should support syn.request or http.request)");
 
 local options = ({...})[1] or { AutoDecode = true, Highlighting = true, SaveLogs = true, CLICommands = true, ShowResponse = true, BlockedURLs = {}, API = true };
 local version = "v1.1.3";
@@ -30,8 +30,8 @@ local Error = clonef(error);
 local getnamecallmethod = clonef(getnamecallmethod);
 local blocked = options.BlockedURLs;
 local enabled = true;
-local reqfunc = (syn or http).request;
-local libtype = syn and "syn" or "http";
+local reqfunc = (syn and syn.request) or request;
+local libtype = syn and "syn" or "request";
 local hooked = {};
 local proxied = {};
 local methods = {
